@@ -5,7 +5,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#ifdef WIN
 #include <conio.h>
+#endif
 
 #define alpha 10000
 #define beta 1

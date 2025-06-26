@@ -199,10 +199,17 @@ void Print_5_highest_players_node(struct Player_Data_Structure *head)
     }
     if(Adminstrator_tester==0)
     {
+        #ifdef WIN
         printf("\nPlayer with this data\n");
         Print_player_specific_node(head,Nodes_order[0]);
         printf(RED"is death\n"RESET);
         Print_skull();
+        #else
+        printf("\nPlayer with this data\n");
+        Print_player_specific_node(head,Nodes_order[0]);
+        printf("is death\n");
+        Print_skull();
+        #endif
     }
 }
 
@@ -340,7 +347,11 @@ void Players_Function(struct Player_Data_Structure *p)
     while(Check_number_character_6_digits(p->result_number)<6)
     {
         /*Exit option for player*/
+        #ifdef WIN
         printf(YELLOW"Do you want to continue (Press N/n in order to escape, if you press any different characters, this mean that you still want to play):"RESET);
+        #else
+        printf("Do you want to continue (Press N/n in order to escape, if you press any different characters, this mean that you still want to play):");
+        #endif
         scanf("%c",&Yes_No);
         while(getchar()!='\n');
         if(Yes_No=='N'||Yes_No=='n')
@@ -359,20 +370,38 @@ void Players_Function(struct Player_Data_Structure *p)
         Check_result_number(p->random_number_str,p->user_number,p->result_number,&p->number_of_play_time,&p->number_of_true,&p->previous_characters_true,&p->current_characters_true);
         if(Check_number_character_6_digits(p->result_number)<=2)
         {
+            #ifdef WIN
             printf(RED"Your result: %s\n"RESET,p->result_number);
+            #else
+            printf("Your result: %s\n",p->result_number);
+            #endif
         }
         else
         {
+            #ifdef WIN
             printf(GREEN"Your result: %s\n"RESET,p->result_number);
+            #else
+            printf("Your result: %s\n",p->result_number);
+            #endif
+
         }
         p->lucky_ratio=((float)p->number_of_true)/((float)p->number_of_play_time);
         if(p->lucky_ratio<0.2)
         {
+            #ifdef WIN
             printf(RED"Current lucky ratio : %f\n"RESET,p->lucky_ratio);
+            #else
+            printf("Current lucky ratio : %f\n",p->lucky_ratio);
+            #endif
+
         }
         else
         {
+            #ifdef WIN
             printf(GREEN"Current lucky ratio : %f\n"RESET,p->lucky_ratio);
+            #else
+            printf("Current lucky ratio : %f\n",p->lucky_ratio);
+            #endif
         }
         if(p->number_of_play_time==7||p->number_of_play_time==50||p->number_of_play_time==100||p->number_of_play_time==1000)
         {

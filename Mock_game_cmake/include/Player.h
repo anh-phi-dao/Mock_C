@@ -5,7 +5,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#ifdef WIN
 #include <conio.h>
+#endif
 #include "Game.h"
 
 extern char Yes_No;

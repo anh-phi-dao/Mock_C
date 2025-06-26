@@ -17,10 +17,14 @@
 ## Usage
 ### Run the program
 - Option 1: Build the Mock_game.c file and run the executable file
-- Option 2 (Require CMake, Makefile, GNU on window-> can install MSYS64 and cmake)
+- Option 2 (Require CMake, Makefile, GNU)
+
 ```console
 cd Mock_game_cmake
 make run
 ```
+## Note
+- If we build cmake project on window, the result will be a colorfull terminal 
+
 ### Use the program
 - Follow the instruction in [User guides for Guest 6 digit number game](<Document_and_Test/User guides for Guest 6 digit number game.pdf>)
